@@ -1,0 +1,12 @@
+build-magento-deploy-image:
+  tags:
+    - BACKEND
+  stage: build-images
+
+  # When using dind, it's wise to use the overlayfs driver for
+  # improved performance.
+  variables:
+    DOCKER_DRIVER: overlay2
+
+  script:
+    - sh ./docker-images/magento-deploy/build-image.sh
