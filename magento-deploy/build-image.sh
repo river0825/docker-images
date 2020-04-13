@@ -1,2 +1,2 @@
 
-docker build -t "xrspace/magento-deploy:latest" -f ./docker-images/magento-deploy/Dockerfile .
+docker build -t "river0825/deploy-tool:latest" -f ./magento-deploy/Dockerfile .
