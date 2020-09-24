@@ -1,5 +1,5 @@
 FROM docker:latest
-LABEL maintainer="river.lin@xrspace.io"
+LABEL maintainer="riverdm@gmail.com"
 
 # RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories 
 RUN apk add --no-cache \

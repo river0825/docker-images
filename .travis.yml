@@ -2,14 +2,14 @@ sudo: required
 services:
   - docker
 
-#before_install:
-#  - docker build -t river0825/react-test -f ./checkpoint/client/Dockerfile.dev ./checkpoint/client/
-
 script:
-#  - docker run river0825/react-test npm test -- --coverage
   - docker build -t river0825/docker-with-compose ./docker-with-compose
+  - docker build -t river0825/magento-php:7.3-cli ./7.3-cli
+  - docker build -t river0825/magento-php:7.3-fpm ./7.3-fpm
+  -
 after_success:
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push river0825/docker-with-compose
-
+  - docker push river0825/magento-php:7.3-cli
+  - docker push river0825/magento-php:7.3-fpm

@@ -1,7 +1,6 @@
 FROM docker:latest
-LABEL maintainer="river.lin@xrspace.io"
+LABEL maintainer="riverdm@gmail.com"
 
-# RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories 
 RUN apk update && \
     apk upgrade && \
     apk add curl jq python3 python3-dev build-base libffi-dev libressl-dev gettext py-pip  openssl-dev gcc libc-dev make && \
