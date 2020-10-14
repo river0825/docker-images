@@ -4,7 +4,7 @@ ENV PHP_MEMORY_LIMIT 2G
 ENV MAGENTO_ROOT /app
 ENV DEBUG false
 ENV MAGENTO_RUN_MODE production
-ENV UPLOAD_MAX_FILESIZE 64M
+ENV UPLOAD_MAX_FILESIZE 2G
 ENV PHP_EXTENSIONS bcmath bz2 calendar exif gd gettext intl mysqli opcache pdo_mysql redis soap sockets sysvmsg sysvsem sysvshm xsl zip pcntl
 
 # Install dependencies
