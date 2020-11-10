@@ -172,7 +172,8 @@ ADD etc/mail.ini /usr/local/etc/php/conf.d/zz-mail.ini
 
 VOLUME /root/.composer/cache
 # Get composer installed to /usr/local/bin/composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl https://getcomposer.org/download/1.10.17/composer.phar -o /usr/local/bin/composer; chmod +x /usr/local/bin/composer
 
 ADD bin/* /usr/local/bin/
 ADD docker-entrypoint.sh /docker-entrypoint.sh
