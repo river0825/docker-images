@@ -13,8 +13,6 @@ RUN apk upgrade && \
         nodejs yarn \
         musl-dev go \
         openjdk11-jre && \
-    curl -O https://bootstrap.pypa.io/get-pip.py && \
-    python3 get-pip.py && \
     pip install docker-compose && \
     pip install awscli && \
     rm -rf /var/cache/apk
