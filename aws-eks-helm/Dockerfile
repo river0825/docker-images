@@ -2,13 +2,12 @@ FROM alpine/helm
 
 RUN apk add --update --no-cache git py-pip bash jq curl \
     && pip install awscli \
-    && curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-
-# ADD https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VER/bin/linux/amd64/kubectl /usr/bin/kubectl
-# RUN chmod +x /usr/bin/kubectl
-
-# ADD https://github.com/roboll/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_linux_amd64 /usr/bin/helmfile
-# RUN chmod +x /usr/bin/helmfile
+    && curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"  \
+    && chmod +x /apps/kubectl && mv /apps/kubectl /usr/bin/  \
+    && curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/aws-iam-authenticator \
+    && chmod +x aws-iam-authenticator && mv aws-iam-authenticator /usr/bin \
+    && curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp \
+    && mv /tmp/eksctl /usr/local/bin
 
 
 # RUN helm init \
